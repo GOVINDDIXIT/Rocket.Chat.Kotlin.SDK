@@ -1,8 +1,7 @@
 package chat.rocket.core.internal.realtime.socket.message.collection
 
-import chat.rocket.common.model.User
 import chat.rocket.core.internal.realtime.socket.Socket
-import chat.rocket.core.model.Myself
+import chat.rocket.core.model.User
 import kotlinx.coroutines.experimental.launch
 import org.json.JSONObject
 
@@ -29,7 +28,7 @@ private fun Socket.processUserDataStream(json: JSONObject, id: String) {
     val fields = json.optJSONObject("fields")
     fields.put("_id", id)
 
-    val adapter = moshi.adapter<Myself>(Myself::class.java)
+    val adapter = moshi.adapter<User>(User::class.java)
     val myself = adapter.fromJson(fields.toString())
     myself?.let {
         if (parentJob == null || !parentJob!!.isActive) {

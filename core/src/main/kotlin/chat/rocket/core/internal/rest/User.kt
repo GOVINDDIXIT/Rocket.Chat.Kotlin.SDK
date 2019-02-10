@@ -3,7 +3,6 @@ package chat.rocket.core.internal.rest
 import chat.rocket.common.RocketChatException
 import chat.rocket.common.model.BaseResult
 import chat.rocket.common.model.RoomType
-import chat.rocket.common.model.User
 import chat.rocket.common.util.CalendarISO8601Converter
 import chat.rocket.core.RocketChatClient
 import chat.rocket.core.internal.RestMultiResult
@@ -15,7 +14,7 @@ import chat.rocket.core.internal.model.OwnBasicInformationPayload
 import chat.rocket.core.internal.model.OwnBasicInformationPayloadData
 import chat.rocket.core.internal.model.PasswordPayload
 import chat.rocket.core.model.ChatRoom
-import chat.rocket.core.model.Myself
+import chat.rocket.core.model.User
 import chat.rocket.core.model.Removed
 import chat.rocket.core.model.UserRole
 import chat.rocket.core.model.Room
@@ -32,14 +31,14 @@ import java.io.InputStream
  * Returns the current logged user information, useful to check if the Token from TokenProvider
  * is still valid.
  *
- * @see Myself
+ * @see User
  * @see RocketChatException
  */
-suspend fun RocketChatClient.me(): Myself {
+suspend fun RocketChatClient.me(): User {
     val httpUrl = requestUrl(restUrl, "me").build()
     val request = requestBuilderForAuthenticatedMethods(httpUrl).get().build()
 
-    return handleRestCall(request, Myself::class.java)
+    return handleRestCall(request, User::class.java)
 }
 
 /**

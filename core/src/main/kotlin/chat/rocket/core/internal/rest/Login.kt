@@ -3,7 +3,6 @@ package chat.rocket.core.internal.rest
 import chat.rocket.common.RocketChatException
 import chat.rocket.common.model.BaseResult
 import chat.rocket.common.model.Token
-import chat.rocket.common.model.User
 import chat.rocket.core.RocketChatClient
 import chat.rocket.core.internal.RestResult
 import chat.rocket.core.internal.model.CasLoginPayload
@@ -16,6 +15,7 @@ import chat.rocket.core.internal.model.SignUpPayload
 import chat.rocket.core.internal.model.ForgotPasswordPayload
 import chat.rocket.core.internal.model.CasData
 import chat.rocket.core.internal.model.OauthData
+import chat.rocket.core.model.User
 import com.squareup.moshi.Types
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.withContext

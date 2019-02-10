@@ -4,7 +4,6 @@ import chat.rocket.common.RocketChatException
 import chat.rocket.common.model.RoomType
 import chat.rocket.common.model.ServerInfo
 import chat.rocket.common.model.Token
-import chat.rocket.common.model.UserStatus
 import chat.rocket.common.util.PlatformLogger
 import chat.rocket.core.RocketChatClient
 import chat.rocket.core.TokenRepository
@@ -17,7 +16,7 @@ import chat.rocket.core.internal.rest.chatRooms
 import chat.rocket.core.internal.rest.getFavoriteMessages
 import chat.rocket.core.internal.rest.getFiles
 import chat.rocket.core.internal.rest.login
-import chat.rocket.core.model.Myself
+import chat.rocket.core.model.User
 import chat.rocket.core.model.history
 import chat.rocket.core.model.messages
 import chat.rocket.core.rxjava.me
@@ -25,10 +24,8 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.channels.Channel
-import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
 import kotlinx.coroutines.experimental.runBlocking
-import kotlinx.coroutines.experimental.suspendCancellableCoroutine
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
@@ -180,8 +177,8 @@ fun main(args: Array<String>) {
 
 fun getMeInfoByRx(client: RocketChatClient) {
     // using RxJava2
-    val myself: Single<Myself> = client.me()
-    myself
+    val user: Single<User> = client.me()
+    user
             .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.newThread())
             .subscribe { self ->

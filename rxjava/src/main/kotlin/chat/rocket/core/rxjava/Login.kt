@@ -1,10 +1,10 @@
 package chat.rocket.core.rxjava
 
 import chat.rocket.common.model.Token
-import chat.rocket.common.model.User
 import chat.rocket.core.RocketChatClient
 import chat.rocket.core.internal.rest.login
 import chat.rocket.core.internal.rest.signup
+import chat.rocket.core.model.User
 import io.reactivex.Single
 import kotlinx.coroutines.experimental.rx2.rxSingle
 

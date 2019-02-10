@@ -6,7 +6,7 @@ import com.squareup.moshi.Json
 import se.ansman.kotshi.JsonSerializable
 
 @JsonSerializable
-data class Myself(
+data class User(
     @Json(name = "_id") val id: String,
     val active: Boolean?,
     override val username: String?,

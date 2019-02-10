@@ -4,7 +4,6 @@ import chat.rocket.common.CommonJsonAdapterFactory
 import chat.rocket.common.internal.FallbackSealedClassJsonAdapter
 import chat.rocket.common.internal.ISO8601Date
 import chat.rocket.common.model.TimestampAdapter
-import chat.rocket.common.model.User
 import chat.rocket.common.util.CalendarISO8601Converter
 import chat.rocket.common.util.Logger
 import chat.rocket.common.util.NoOpLogger
@@ -23,7 +22,7 @@ import chat.rocket.core.internal.realtime.socket.Socket
 import chat.rocket.core.internal.realtime.socket.model.State
 import chat.rocket.core.internal.realtime.socket.model.StreamMessage
 import chat.rocket.core.model.Message
-import chat.rocket.core.model.Myself
+import chat.rocket.core.model.User
 import chat.rocket.core.model.Room
 import chat.rocket.core.model.url.MetaJsonAdapter
 import com.squareup.moshi.Moshi
@@ -62,7 +61,7 @@ class RocketChatClient private constructor(
     val roomsChannel = Channel<StreamMessage<Room>>(Channel.UNLIMITED)
     val subscriptionsChannel = Channel<StreamMessage<Subscription>>(Channel.UNLIMITED)
     val messagesChannel = Channel<Message>(Channel.UNLIMITED)
-    val userDataChannel = Channel<Myself>(Channel.UNLIMITED)
+    val userDataChannel = Channel<User>(Channel.UNLIMITED)
     val activeUsersChannel = Channel<User>(Channel.UNLIMITED)
     val typingStatusChannel = Channel<Pair<String, Boolean>>(Channel.UNLIMITED)
     internal val socket: Socket

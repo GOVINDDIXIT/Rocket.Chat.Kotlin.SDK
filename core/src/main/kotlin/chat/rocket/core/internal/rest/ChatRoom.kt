@@ -2,7 +2,6 @@ package chat.rocket.core.internal.rest
 
 import chat.rocket.common.model.BaseResult
 import chat.rocket.common.model.RoomType
-import chat.rocket.common.model.User
 import chat.rocket.core.RocketChatClient
 import chat.rocket.core.internal.model.ChatRoomAnnouncementPayload
 import chat.rocket.core.internal.model.ChatRoomDescriptionPayload
@@ -16,10 +15,7 @@ import chat.rocket.core.internal.model.ChatRoomTypePayload
 import chat.rocket.core.internal.model.ChatRoomFavoritePayload
 import chat.rocket.core.internal.RestResult
 import chat.rocket.core.internal.model.RoomIdPayload
-import chat.rocket.core.model.ChatRoomRole
-import chat.rocket.core.model.Message
-import chat.rocket.core.model.Room
-import chat.rocket.core.model.PagedResult
+import chat.rocket.core.model.*
 import chat.rocket.core.model.attachment.GenericAttachment
 import com.squareup.moshi.Types
 import kotlinx.coroutines.experimental.CommonPool

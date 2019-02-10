@@ -3,7 +3,7 @@ package chat.rocket.core.compat
 import chat.rocket.core.RocketChatClient
 import chat.rocket.core.compat.internal.callback
 import chat.rocket.core.internal.rest.me
-import chat.rocket.core.model.Myself
+import chat.rocket.core.model.User
 import kotlinx.coroutines.experimental.CommonPool
 
 /**
@@ -14,7 +14,7 @@ import kotlinx.coroutines.experimental.CommonPool
  * @see
  * @see RocketChatException
  */
-fun RocketChatClient.me(future: Callback<Myself>): Call =
+fun RocketChatClient.me(future: Callback<User>): Call =
         callback(CommonPool, future) {
             me()
         }
