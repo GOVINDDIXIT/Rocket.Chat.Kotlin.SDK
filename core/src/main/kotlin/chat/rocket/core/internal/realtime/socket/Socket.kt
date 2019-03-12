@@ -34,13 +34,13 @@ import kotlin.coroutines.experimental.coroutineContext
 const val PING_INTERVAL = 15L
 
 class Socket(
-        internal val client: RocketChatClient,
-        internal val roomsChannel: SendChannel<StreamMessage<Room>>,
-        internal val subscriptionsChannel: SendChannel<StreamMessage<Subscription>>,
-        internal val messagesChannel: SendChannel<Message>,
-        internal val userDataChannel: SendChannel<User>,
-        internal val activeUsersChannel: SendChannel<User>,
-        internal val typingStatusChannel: SendChannel<Pair<String, Boolean>>
+    internal val client: RocketChatClient,
+    internal val roomsChannel: SendChannel<StreamMessage<Room>>,
+    internal val subscriptionsChannel: SendChannel<StreamMessage<Subscription>>,
+    internal val messagesChannel: SendChannel<Message>,
+    internal val userDataChannel: SendChannel<User>,
+    internal val activeUsersChannel: SendChannel<User>,
+    internal val typingStatusChannel: SendChannel<Pair<String, Boolean>>
 ) : WebSocketListener() {
 
     private val request: Request = Request.Builder()
